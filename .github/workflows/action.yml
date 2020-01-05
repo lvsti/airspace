@@ -1,6 +1,5 @@
 name: "Airspace traffic aggregator"
 on:
-  push:
   schedule: 
     - cron: '*/15 * * * *'
 
