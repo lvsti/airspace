@@ -82,7 +82,8 @@ const dumpFlights = async (airport) => {
         var csv = ''
 
         for (const p of trail) {
-            if (p.alt > process.env.MAX_ALTITUDE_FT || haversine_distance(p, airport_pos) > process.env.MAX_DISTANCE_KM) {
+            if (p.alt > parseFloat(process.env.MAX_ALTITUDE_FT) || 
+                haversine_distance(p, airport_pos) > parseFloat(process.env.MAX_DISTANCE_KM)) {
                 continue
             }
             csv += [p.ts, p.lat, p.lng, p.alt, p.spd, p.hd].join(',') + "\n"
